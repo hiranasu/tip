@@ -9,7 +9,7 @@ import play.api.libs.iteratee.Concurrent
 object Application extends Controller {
   
   def index = Action {
-    Ok("hello world!")
+    Ok(views.html.map())
   }
   
   val (enumerator, channel) = Concurrent.broadcast[String]
