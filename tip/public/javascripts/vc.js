@@ -1,13 +1,16 @@
 $(function() {
+	var socket = new WebSocket("ws://localhost:9001/echowebsocketmessage");
+    socket.onmessage = function(event) {
+    	// 受信処理
+    }
+    
     var mapOptions = {
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         mapTypeControl: false
     };
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-    console.log("A");
     var geoErr = function(flag){
-        console.log("B" + flag);
         var cont = "Error: The Geolocation service failed.";
         var opt = {
             map: map,
@@ -19,7 +22,6 @@ $(function() {
     }
     
     if(navigator.geolocation) {
-        console.log("C");
         navigator.geolocation.getCurrentPosition(function(position) {
         var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         map.setCenter(latlng);
@@ -31,18 +33,14 @@ $(function() {
             position:latlng,
             map: map
         });
-        console.log("D");
     }, function(){
             geoErr(1);
         });
     } else {
-        console.log("E");
         geoErr(2);
     }
-    console.log("F");
     $('#map_content').on('pageshow', function(){
         google.maps.event.trigger(map, 'resize');
         map.setCenter(Latlng); 
     });
-    console.log("G");
 });
