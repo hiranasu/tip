@@ -7,7 +7,7 @@
     $(function() {
     	console.log("init");
         var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
-        var socket = new WS("ws://localhost:9001/echowebsocketmessage");
+        var socket = new WS("http://www9057ue.sakura.ne.jp:9000/echowebsocketmessage");
         console.log("new socket");
         socket.onmessage = function(event) {
         	console.log("onmessage");
