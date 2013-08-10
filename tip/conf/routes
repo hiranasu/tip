@@ -10,4 +10,4 @@ GET     /echowebsocketmessage       controllers.Application.echowebsocketmessage
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
-
+GET     /r                          controllers.Tip.update
