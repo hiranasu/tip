@@ -32,7 +32,7 @@ object Application extends Controller {
 	  }
 	  
 	  // Send a single 'Hello!' message
-	  val out = Enumerator("Hello!")
+	  val out = Enumerator("Hello!").andThen(Enumerator.eof)
 	  
 	  (in, out)
 	}

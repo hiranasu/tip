@@ -1,3 +1,4 @@
+@()(implicit request: play.mvc.Http.Request)
 <!DOCTYPE html>
 
 <html>
@@ -8,6 +9,8 @@
     	console.log("init");
         var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
         var socket = new WS("ws://localhost:9001/echowebsocketmessage");
+        
+        console.log(@routes.Application.echowebsocketmessage().webSocketURL(request));
         console.log("new socket");
         socket.onmessage = function(event) {
         	console.log("onmessage");
