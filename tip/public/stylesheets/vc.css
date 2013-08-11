@@ -77,11 +77,17 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     bottom:0;
     box-shadow:-1px -1px 1px 1px rgba(0,0,0,0.3);
 }
-#ribbon .title, #detail .title{
+#ribbon .title{
     display:table;
     height:40px;
     width:100%;
     margin:0.5em;
+}
+#detail .title{
+    display:table;
+    height:40px;
+    width:100%;
+    margnin-bottom:0.5em;
 }
 #ribbon h2,#detail h2{
     width:70%;
@@ -105,7 +111,6 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
 }
 #ribbon .status, #detail .status{
     border-top:1px solid #eee;
-    margin:0.5em;
     padding-top:0.5em;
     color:#666;
 }
@@ -147,25 +152,55 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     color:#333 !important;
     font-weight:normal !important;
 }
+#detail .backBtn{
+    text-align:center;
+    margin:0.5em 0;
+}
+#detail .backBtn a{
+    background: url("../images/toggle_down.png") no-repeat right top;
+    background-size:20px 20px;
+    line-height:27px;
+    padding:1px 23px 3px 0;
+    color:#333 !important;
+    font-weight:normal !important;
+}
 #detail .roominfo{
     display:table;
     width:100%;
     margin-top:1.5em;
 }
-#detail .roominfo h3{
+#detail h3{
     border-left:8px solid gray;
     padding-left:0.5em;
     font-weight:bold;
-    margin-bottom:1em;
+    margin-bottom:0.7em;
 }
 #detail .roominfo em{
     font-size:150%;
+}
+#detail .availability,#detail .radarChart{
+    margin-top:0.5em;
+}
+.roomphoto{
+    border:1px solid #828282;
+}
+.infolist li{
+    padding-top:0.2em;
+}
+.infolist li:first-child{
+    padding-top:0;
 }
 .em5w{
     width:5em;
 }
 .em7w{
     width:7em;
+}
+.mt1em{
+    margin-top:1em;
+}
+.pl1em{
+    padding-left:0.5em;
 }
 .tbl{
     display:table;

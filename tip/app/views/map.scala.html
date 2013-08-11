@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>ミルップ</title>
-<link rel="apple-touch-icon-precomposed" href="img/icon.png">
+<link rel="apple-touch-icon-precomposed" href="@routes.Assets.at("images/icon.png")">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
@@ -13,10 +13,11 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/vc.css")">
 <script src="@routes.Assets.at("javascripts/vc.js")" type="text/javascript"></script>
+</head>
 <body>
 <div data-role="page" id="map">
     <div data-role="header">
-        <h1><img src="@routes.Assets.at("images/header.png")" width=87 height=15 alt="授乳室マップ"></h1>
+        <h1><img src="@routes.Assets.at("images/millppu.png")" width=55 height=15 alt="ミルップ"></h1>
     </div>
     <div data-role="content" id="map_content">
         <form action="#" method="get" class="vc_srchbox">
@@ -61,16 +62,39 @@
 </div>
 <div id="detail">
     <div data-role="content" class="content">
-    <div class="title"><h2>ミッドタウン・ガレリア 2F</h2><div class="detailBtn"><a href="#map" data-direction="reverse" data-transition="slideup">詳細</a></div></div>
-    <div class="status"><dl><dt>空き席あります！</dt><dd><em id="numOfEmpSeats" class="lastone">1</em> / <div id="numOfTotalSeats" style="display: inline-block; _display: inline;">3</div>席</dd></dl></div>
-    <div class="roominfo">
-        <div class="tblcell vat">
-            <h3>授乳室情報</h3>
-            <dl class="tbl"><dt class="tblcell vam em5w">授乳室1</dt><dd class="tblcell vam empty"><em>○</em>（使用可能）</dd></dl>
-            <dl class="tbl"><dt class="tblcell vam em5w">授乳室2</dt><dd class="tblcell vam occupied"><em>×</em>（1分未満）</dd></dl>
+        <div class="title"><h2>ミッドタウン・ガレリア 2F</h2><div class="detailBtn"><a href="#map" data-direction="reverse" data-transition="slideup">戻る</a></div></div>
+        <div class="status"><dl><dt>空き席あります！</dt><dd><em id="numOfEmpSeats" class="lastone">1</em> / <div id="numOfTotalSeats" style="display: inline-block; _display: inline;">3</div>席</dd></dl></div>
+        <div class="roominfo">
+            <div class="tblcell vat">
+                <h3>現在の授乳室情報</h3>
+                <dl class="tbl"><dt class="tblcell vam em5w">授乳室1</dt><dd class="tblcell vam empty"><em>○</em>（使用可能）</dd></dl>
+                <dl class="tbl"><dt class="tblcell vam em5w">授乳室2</dt><dd class="tblcell vam occupied"><em>×</em>（1分未満）</dd></dl>
+            </div>
+            <div class="tblcell txtr vat">
+                <img src="@routes.Assets.at("images/room01.png")" width=100 height=75 class="roomphoto">
+            </div>
+        </div><!-- /.roominfo -->
+        <h3 class="mt1em">設備</h3>
+            <ul class="infolist">
+            <li>おむつ交換台・洗浄機</li>
+            <li>温水器付きシンク</li>
+            <li>洗面台・おむつ用ごみ箱</li>
+            <li>遊び場あり</li>
+            </ul>
+        <h3 class="mt1em">平均利用率</h3>
+            <ul class="infolist">
+            <li>利用時間：11:00～21:00</li>
+            </ul>
+            <div class="availability"><img src="img/availability.png" width=100%></div>
+        <h3 class="mt1em">評価</h3>
+            <div class="tbl">
+            <div class="radarChart tblcell vat"><img src="img/radar_chart.png" width=180 height=145></div><div class="tblcell vat pl1em"><a href="" data-direction="search" data-role="button" data-inline="true">評価する</a></div>
+            </div>
+        <h3 class="mt1em">関連サイト</h3>
+            <ul class="infolist">
+            <li><a href="http://www.roppongihills.com/service/nursing_room.html">施設サイト</a></li>
+            </ul>
+        <div class="backBtn"><a href="#map" data-direction="reverse" data-transition="slideup">戻る</a></div>
         </div>
-            <div class="tblcell txtr vat"><img src="@routes.Assets.at("images/room01.png")" width=100 height=75></div>
-        </div>
-    </div>
-</div>
+    </div><!-- /.content -->
 </html>

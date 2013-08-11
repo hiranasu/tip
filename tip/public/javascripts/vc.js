@@ -98,24 +98,24 @@ function makeMaker(object, id) {
                 console.log(object.roomid);
  
                 // TextChange
-                numOfEmp = $("#numOfEmpSeats");
-                numOfEmp.text = pinData[id]["emptynum"];
+                numOfEmp = document.getElementById("numOfEmpSeats");
+                numOfEmp.innerHTML = pinData[id]["emptynum"];
                 // ColorChange
                 if (pinData[id]["roomstat"] == 0) {
-                    numOfEmp.toggleClass('empty');
+                    numOfEmp.className = 'empty';
                 }
                 else if (pinData[id]["roomstat"] == 1) {
-                    numOfEmp.toggleClass('lastone');
+                    numOfEmp.className = 'lastone';
                 }
                 else if (pinData[id]["roomstat"] == 2) {
-                    numOfEmp.toggleClass('occupied');
+                    numOfEmp.className = 'occupied';
                 }
                 else {
-                    numOfEmp.toggleClass('closed');
+                    numOfEmp.className = 'closed';
                 }
                 // TextChange
-                numOfTotal = $("#numOfTotalSeats");
-                numOfTotal.text = pinData[id]["totalnum"];
+                numOfTotal = document.getElementById("numOfTotalSeats");
+                numOfTotal.innerHTML = pinData[id]["totalnum"];
             });
 	} 
  
