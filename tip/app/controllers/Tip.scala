@@ -42,7 +42,7 @@ object Tip extends Controller {
           } else {
             roomStat = 2
           }
-          println("room=" + e.room_id + " roomstat=" + roomStat)
+          println("room=" + e.room_id + " totalNum=" + e.totalnum + " emptyNum=" + emptyNum + " roomstat=" + roomStat)
             
           jsonRes += "\"roomstat\":" + roomStat + ",\"seats\":["
           val chairStatByRoom:List[ChairStat] = Room.getChairStatByRoom(e.room_id)
