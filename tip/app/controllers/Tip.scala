@@ -4,6 +4,7 @@ import play.api._
 import play.api.mvc._
 import models._
 import play.api.libs.iteratee.Concurrent
+import play.libs.Json
 
 object Tip extends Controller {
   
@@ -20,6 +21,11 @@ object Tip extends Controller {
         val roomInfo:List[Room] = Room.getAll
         roomInfo.foreach(println)
         
+        // push websocket message
+        val msg = Json.toJson(4).toString //TODO roomInfo to json data
+        println("msg" + msg)
+        
+        Application.channel.push(msg)
         Ok("end")
   }
   
