@@ -19,7 +19,7 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     background:#fff;
 }
 .ui-title{
-    margin:0.6em 30%  !important;
+    margin:0.6em !important;
 }
 .ui-content{
     padding:0;
@@ -28,16 +28,16 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     margin:0.5em;
 }
 .vc_srchbox{
+    margin-left:0.5em;
     position:absolute;
-    top:0;
-    left:0.5em;
+    width:70%;
     z-index:1;
 }
 .advancedBtn{
     border:1px solid gray;
     position:absolute;
     right:0.5em;
-    top:1em;
+    margin-top:0.9em;
     z-index:1;
     background-color:#fff;
     font-size:90%;
@@ -46,7 +46,7 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     font-weight:normal !important;
     color:#333 !important;
     display:block;
-    padding:0.2em 1em;
+    padding:0.2em 0.5em;
 }
 .advanced dt{
     border-left:8px solid gray;
@@ -64,7 +64,73 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     padding-left:0.5em;
     font-weight:bold;
 }
-.cancel{
+#detail .cancel{
     text-align:center;
     margin:1em 0;
+}
+#ribbon{
+    background-color:#fff;
+    position:fixed;
+    z-index:1;
+    height:110px;
+    width:100%;
+    bottom:0;
+    box-shadow:-1px -1px 1px 1px rgba(0,0,0,0.3);
+}
+#ribbon .title{
+    display:table;
+    height:40px;
+    width:100%;
+    margin:0.5em;
+}
+#ribbon h2{
+    width:72%;
+    border-right:1px solid #eee;
+    display:table-cell;
+    vertical-align: middle;
+    font-weight:bold;
+}
+#ribbon .detailBtn{
+    display:table-cell;
+    width:28%;
+    text-align:center;
+    vertical-align: middle;
+}
+#ribbon .detailBtn a{
+    background: url("../images/toggle_up.png") no-repeat right top;
+    background-size:20px 20px;
+    line-height:27px;
+    padding:1px 23px 3px 0;
+    color:#333 !important;
+}
+#ribbon .status{
+    border-top:1px solid #eee;
+    margin:0.5em;
+    padding-top:0.5em;
+    color:#666;
+}
+#ribbon .status dl{
+    display:table;
+}
+#ribbon .status dt,#ribbon .status dd{
+    display:table-cell;
+}
+#ribbon .status dt{
+    vertical-align: top;
+}
+#ribbon .status dd{
+    padding-left:2em;
+}
+#ribbon .status dd em{
+    font-weight:bold;
+    font-size:150%;
+}
+#ribbon .status dd em.lastone{
+    color:#e7b91c;
+}
+#ribbon .status dd em.occupied{
+    color:#bb1d21;
+}
+#ribbon .status dd em.empty{
+    color:#35a737;
 }
