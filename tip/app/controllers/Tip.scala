@@ -59,10 +59,7 @@ object Tip extends Controller {
         println(jsonRes)
         
         // push websocket message
-        val msg = Json.toJson(4).toString //TODO roomInfo to json data
-        println("msg" + msg)
-        
-        Application.channel.push(msg)
+        Application.channel.push(jsonRes)
         Ok("end")
   }
   
