@@ -64,7 +64,7 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     padding-left:0.5em;
     font-weight:bold;
 }
-#detail .cancel{
+#advancedSrch .cancel{
     text-align:center;
     margin:1em 0;
 }
@@ -77,20 +77,20 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     bottom:0;
     box-shadow:-1px -1px 1px 1px rgba(0,0,0,0.3);
 }
-#ribbon .title{
+#ribbon .title, #detail .title{
     display:table;
     height:40px;
     width:100%;
     margin:0.5em;
 }
-#ribbon h2{
-    width:72%;
+#ribbon h2,#detail h2{
+    width:70%;
     border-right:1px solid #eee;
     display:table-cell;
     vertical-align: middle;
     font-weight:bold;
 }
-#ribbon .detailBtn{
+#ribbon .detailBtn, #detail .detailBtn{
     display:table-cell;
     width:28%;
     text-align:center;
@@ -103,34 +103,82 @@ body{-webkit-text-size-adjust:none;color:#333333;font-family:"ヒラギノ角ゴ
     padding:1px 23px 3px 0;
     color:#333 !important;
 }
-#ribbon .status{
+#ribbon .status, #detail .status{
     border-top:1px solid #eee;
     margin:0.5em;
     padding-top:0.5em;
     color:#666;
 }
-#ribbon .status dl{
+#ribbon .status dl, #detail .status dl{
     display:table;
 }
-#ribbon .status dt,#ribbon .status dd{
+#ribbon .status dt,#ribbon .status dd, #detail .status dt,#detail .status dd{
     display:table-cell;
 }
-#ribbon .status dt{
+#ribbon .status dt, #detail .status dt{
     vertical-align: top;
 }
-#ribbon .status dd{
+#ribbon .status dd, #detail .status dd{
     padding-left:2em;
 }
-#ribbon .status dd em{
+#ribbon .status dd em, #detail .status dd em{
     font-weight:bold;
     font-size:150%;
 }
-#ribbon .status dd em.lastone{
+.lastone{
     color:#e7b91c;
 }
-#ribbon .status dd em.occupied{
+.occupied{
     color:#bb1d21;
 }
-#ribbon .status dd em.empty{
+.empty{
     color:#35a737;
+}
+#detail{
+    background-color:#fff !important;
+    width:100%;
+    box-shadow:-1px -1px 1px 1px rgba(0,0,0,0.3);
+}
+#detail .detailBtn a{
+    background: url("../images/toggle_down.png") no-repeat right top;
+    background-size:20px 20px;
+    line-height:27px;
+    padding:1px 23px 3px 0;
+    color:#333 !important;
+    font-weight:normal !important;
+}
+#detail .roominfo{
+    display:table;
+    width:100%;
+    margin-top:1.5em;
+}
+#detail .roominfo h3{
+    border-left:8px solid gray;
+    padding-left:0.5em;
+    font-weight:bold;
+    margin-bottom:1em;
+}
+#detail .roominfo em{
+    font-size:150%;
+}
+.em5w{
+    width:5em;
+}
+.em7w{
+    width:7em;
+}
+.tbl{
+    display:table;
+}
+.tblcell{
+    display:table-cell;
+}
+.txtr{
+    text-align:right;
+}
+.vam{
+    vertical-align: middle;
+}
+.vat{
+    vertical-align: top;
 }
