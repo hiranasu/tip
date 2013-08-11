@@ -25,7 +25,7 @@ object Application extends Controller {
   }
   
   def push = Action {
-    channel.push("{\"roomid\":100,\"roomlat\":35,\"roomlng\":139,\"roomstat\":0,\"totalnum\":2,\"emptynum\":1,\"seats:\"[{\"seatid\":10,\"seatstatus\":0},{\"seatid\":11,\"seatstatus\":1}]}")
+    channel.push("{\"roomid\":100,\"roomlat\":35,\"roomlng\":139,\"roomstat\":0,\"totalnum\":2,\"emptynum\":1,\"seats\":[{\"seatid\":10,\"seatstatus\":0},{\"seatid\":11,\"seatstatus\":1}]}")
     Ok("pushed")
   }
 }
