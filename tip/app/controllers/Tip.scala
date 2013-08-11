@@ -20,7 +20,6 @@ object Tip extends Controller {
         // select DB
         // getAll room
         val roomInfo:List[RoomInfo] = Room.getRoomInfo
-        roomInfo.foreach(println)
         
         // get emptynum and chair info by room
         var jsonRes = "{\"rooms\":["
@@ -43,6 +42,7 @@ object Tip extends Controller {
           } else {
             roomStat = 2
           }
+          println("room=" + e.room_id + " roomstat=" + roomStat)
             
           jsonRes += "\"roomstat\":" + roomStat + ",\"seats\":["
           val chairStatByRoom:List[ChairStat] = Room.getChairStatByRoom(e.room_id)
@@ -56,7 +56,6 @@ object Tip extends Controller {
         }
         jsonRes = jsonRes.substring(0, jsonRes.length() - 1)
         jsonRes += "]}"
-        println(jsonRes)
         
         // push websocket message
         Application.channel.push(jsonRes)
