@@ -20,7 +20,7 @@ object Tip extends Controller {
         val roomInfo:List[Room] = Room.getAll
         roomInfo.foreach(println)
         
-s        Ok("end")
+        Ok("end")
   }
   
 }
