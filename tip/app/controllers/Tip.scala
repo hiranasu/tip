@@ -35,9 +35,9 @@ object Tip extends Controller {
           }
 
           var roomStat = 0
-          if(emptyNum / e.totalnum > 0.5) {
+          if(emptyNum / e.totalnum.toDouble > 0.5) {
             roomStat = 0
-          } else if (emptyNum / e.totalnum > 0) {
+          } else if (emptyNum / e.totalnum.toDouble > 0) {
             roomStat = 1
           } else {
             roomStat = 2
