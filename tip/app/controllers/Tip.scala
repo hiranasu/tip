@@ -23,14 +23,40 @@ object Tip extends Controller {
         roomInfo.foreach(println)
         
         // get emptynum and chair info by room
+        var jsonRes = "{\"rooms\":["
         roomInfo.foreach {e => {
-            val emptyNumByRoom: List[EmptyNum]  = Room.getEmptyNumByRoom(e.room_id)
-            emptyNumByRoom.foreach(println)
-
-            val chairStatByRoom:List[ChairStat] = Room.getChairStatByRoom(e.room_id)
-            chairStatByRoom.foreach(println)
+          jsonRes += "{\"roomid\":\"" + e.room_id + "\",\"totalnum\":" + e.totalnum + ",\"roomlat\":" + e.x + ",\"roomlon\":" + e.y + ","
+          
+          var emptyNum = 0
+          
+          val emptyNumByRoom: List[EmptyNum]  = Room.getEmptyNumByRoom(e.room_id)
+          emptyNumByRoom.foreach{e =>
+            emptyNum = e.empty_num.toInt
+            jsonRes += "\"emptynum\":" + e.empty_num + ","
           }
+
+          var roomStat = 0
+          if(emptyNum / e.totalnum > 0.5) {
+            roomStat = 0
+          } else if (emptyNum / e.totalnum > 0) {
+            roomStat = 1
+          } else {
+            roomStat = 2
+          }
+            
+          jsonRes += "\"roomstat\":" + roomStat + ",\"seats\":["
+          val chairStatByRoom:List[ChairStat] = Room.getChairStatByRoom(e.room_id)
+          chairStatByRoom.foreach{e=>
+            jsonRes += "{\"seatid\":\"" + e.chair_id + "\",\"seatstatus\":" + e.status +"},"
+          }
+          jsonRes = jsonRes.substring(0, jsonRes.length() - 1)
+          jsonRes += "]"
+          }
+          jsonRes += "},"
         }
+        jsonRes = jsonRes.substring(0, jsonRes.length() - 1)
+        jsonRes += "]}"
+        println(jsonRes)
         
         // push websocket message
         val msg = Json.toJson(4).toString //TODO roomInfo to json data
