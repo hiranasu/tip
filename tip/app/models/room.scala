@@ -39,7 +39,7 @@ object Room {
 
   def getAll: List[Room] = {
     DB.withConnection { implicit c =>
-      val datas = SQL("SELECT * FROM ROOM_INFO").as(Room.data *)
+      val datas = SQL("SELECT room_id ,chair_id, (CASE WHEN SUM(status) >= 2 THEN 1 ELSE 0 END) AS status, x, y FROM ROOM_INFO GROUP BY room_id, chair_id").as(Room.data *)
       return datas
     }
   }
