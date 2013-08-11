@@ -22,7 +22,7 @@
         <form action="#" method="get" class="vc_srchbox">
             <input type="search" name="p" class="query" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="施設・住所" value="">
         </form>
-        <div class="advancedBtn"><a href="#advancedSrch" data-transition="slideup" data-inline="true">条件</a></div>
+        <div class="advancedBtn"><a href="#detail" data-transition="slideup" data-inline="true">条件</a></div>
         <div id="map_canvas"></div>
     </div>
 </div>
@@ -59,8 +59,18 @@
         <div class="cancel"><a href="#map" data-direction="reverse" data-transition="slideup" data-role="text">キャンセル</a></div>
     </div>
 </div>
-<div id="ribbon">
-<div class="title"><h2>ミッドタウン・ガレリア 2F</h2><div class="detailBtn"><a href="#detail">詳細</a></div></div>
-<div class="status"><dl><dt>空き席あります！</dt><dd><em class="lastone">1</em> / 3席</dd></dl></div>
+<div id="detail">
+    <div data-role="content" class="content">
+    <div class="title"><h2>ミッドタウン・ガレリア 2F</h2><div class="detailBtn"><a href="#map" data-direction="reverse" data-transition="slideup">詳細</a></div></div>
+    <div class="status"><dl><dt>空き席あります！</dt><dd><em class="lastone">1</em> / 3席</dd></dl></div>
+    <div class="roominfo">
+        <div class="tblcell vat">
+            <h3>授乳室情報</h3>
+            <dl class="tbl"><dt class="tblcell vam em5w">授乳室1</dt><dd class="tblcell vam empty"><em>○</em>（使用可能）</dd></dl>
+            <dl class="tbl"><dt class="tblcell vam em5w">授乳室2</dt><dd class="tblcell vam occupied"><em>×</em>（1分未満）</dd></dl>
+        </div>
+            <div class="tblcell txtr vat"><img src="@routes.Assets.at("images/room01.png")" width=100 height=75></div>
+        </div>
+    </div>
 </div>
 </html>

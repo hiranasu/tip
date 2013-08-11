@@ -47,7 +47,8 @@ $(function() {
     var pinData = new Array();
  
     // WebSocket
-    var host = "ws://localhost:9000/ws";
+    //var host = "ws://localhost:9000/ws";
+    var host = "ws://www9057ue.sakura.ne.jp:9000/ws";
     var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
     var socket = new WS(host);
      
