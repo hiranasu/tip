@@ -18,8 +18,19 @@ object Tip extends Controller {
         val result = room.add
         
         // select DB
-        val roomInfo:List[Room] = Room.getAll
+        // getAll room
+        val roomInfo:List[RoomInfo] = Room.getRoomInfo
         roomInfo.foreach(println)
+        
+        // get emptynum and chair info by room
+        roomInfo.foreach {e => {
+            val emptyNumByRoom: List[EmptyNum]  = Room.getEmptyNumByRoom(e.room_id)
+            emptyNumByRoom.foreach(println)
+
+            val chairStatByRoom:List[ChairStat] = Room.getChairStatByRoom(e.room_id)
+            chairStatByRoom.foreach(println)
+          }
+        }
         
         // push websocket message
         val msg = Json.toJson(4).toString //TODO roomInfo to json data
