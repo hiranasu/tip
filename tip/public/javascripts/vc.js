@@ -52,55 +52,72 @@ $(function() {
     var WS = window['MozWebSocket'] ? MozWebSocket : WebSocket;
     var socket = new WS(host);
      
-    // 受信処理
+     // 受信処理
     socket.onmessage = function(messageEvent) {
         var data = JSON.parse(messageEvent.data);
+ 
+        console.log(messageEvent.data);
  
         var i = 0;
         for (i = 0; i < data.rooms.length; i = i + 1) {
  
             var object = data.rooms[i];
+            var id = object.roomid;
  
-            if (pin[object.roomid]) {
-                pin[object.roomid].setMap(null);
-            }
-            pin[object.roomid] = new google.maps.Marker({
-                position: new google.maps.LatLng(object.roomlat, object.roomlon),
-                map: map,
-                icon: markerArray[object.roomstat]
-            });
+            makeMaker(data.rooms[i], id);
             // PinData 格納
-             
+            pinData[id] = {};
+            pinData[id]["emptynum"] = object.emptynum;
+            pinData[id]["totalnum"] = object.totalnum;
+            pinData[id]["roomstat"] = object.roomstat;
+            pinData[id]["seats"] = {};
  
-/*
-        google.maps.event.addListener(pin[object.roomid], 'click', function() {
-            $.mobile.changePage($("#advancedSrch"), {data-transition= "slideup"});
-        });
-*/
- 
-            // TextChange
-            numOfEmp = document.getElementById("numOfEmpSeats");
-            numOfEmp.innerHTML = object.emptynum;
-            // ColorChange
-            if (object.roomstat == 0) {
-                numOfEmp.className = 'empty';
+            var j = 0;
+            for (j = 0; j < object.seats.length; j = j + 1) {
+                var seat = object.seats[j];
+                pinData[id]["seats"]["seatid"] = seat.seatid;
+                pinData[id]["seats"]["seatstatus"] = seat.seatstatus;
             }
-            else if (object.roomstat == 1) {
-                numOfEmp.className = 'lastone';
-            }
-            else if (object.roomstat == 2) {
-                numOfEmp.className = 'occupied';
-            }
-            else {
-                numOfEmp.className = 'closed';
-            }
-            // TextChange
-            numOfTotal = document.getElementById("numOfTotalSeats");
-            numOfTotal.innerHTML = object.totalnum;
         }
     };
  
  
+function makeMaker(object, id) {
+	if (pin[id]) {
+                pin[id].setMap(null);
+            }
+            pin[id] = new google.maps.Marker({
+                position: new google.maps.LatLng(object.roomlat, object.roomlon),
+                map: map,
+                icon: markerArray[object.roomstat]
+            });
+ 
+            google.maps.event.addListener(pin[id], 'click', function() {
+                $.mobile.changePage($("#detail"));
+ 
+                console.log(object.roomid);
+ 
+                // TextChange
+                numOfEmp = $("#numOfEmpSeats");
+                numOfEmp.text = pinData[id]["emptynum"];
+                // ColorChange
+                if (pinData[id]["roomstat"] == 0) {
+                    numOfEmp.toggleClass('empty');
+                }
+                else if (pinData[id]["roomstat"] == 1) {
+                    numOfEmp.toggleClass('lastone');
+                }
+                else if (pinData[id]["roomstat"] == 2) {
+                    numOfEmp.toggleClass('occupied');
+                }
+                else {
+                    numOfEmp.toggleClass('closed');
+                }
+                // TextChange
+                numOfTotal = $("#numOfTotalSeats");
+                numOfTotal.text = pinData[id]["totalnum"];
+            });
+	} 
  
     //-------------------------------------------------------
     // 適当に散らばせておくピン
