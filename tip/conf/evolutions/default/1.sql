@@ -5,7 +5,7 @@ CREATE TABLE ROOM_INFO (
     tag_id VARCHAR(15) NOT NULL,
     x VARCHAR(15),
     y VARCHAR(15),
-    status INT(1) default 0,
+    status VARCHAR(1) default 0,
     CONSTRAINT room_info_key PRIMARY KEY (chair_id, room_id, tag_id)
 );
  

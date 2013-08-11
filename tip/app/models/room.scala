@@ -29,17 +29,16 @@ object Room {
   val data = {
     get[String]("room_id") ~
     get[String]("chair_id") ~
-    get[String]("tag_id") ~
     get[String]("x") ~
     get[String]("y") ~
     get[String]("status") map {
-      case room_id ~ chair_id ~ tag_id ~ x ~ y ~ status => Room(room_id, chair_id, tag_id, x, y, status)
+      case room_id ~ chair_id ~ x ~ y ~ status => Room(room_id, chair_id, null, x, y, status)
     }
   }
 
   def getAll: List[Room] = {
     DB.withConnection { implicit c =>
-      val datas = SQL("SELECT room_id ,chair_id, (CASE WHEN SUM(status) >= 2 THEN 1 ELSE 0 END) AS status, x, y FROM ROOM_INFO GROUP BY room_id, chair_id").as(Room.data *)
+      val datas = SQL("SELECT room_id ,chair_id, (CASE WHEN SUM(CONVERT(status,INTEGER)) >= 2 THEN '1' ELSE '0' END) AS status, x, y FROM ROOM_INFO GROUP BY room_id, chair_id").as(Room.data *)
       return datas
     }
   }
